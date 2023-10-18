@@ -161,6 +161,13 @@ cython_debug/
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# API Keys
+/server/api_config.yaml
+
+# Request Stuff
+/server/requests.http
+
+# React
 # dependencies
 client/node_modules
 client/.pnp
