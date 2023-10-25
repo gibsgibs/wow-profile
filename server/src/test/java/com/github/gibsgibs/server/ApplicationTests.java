@@ -1,4 +1,4 @@
-package localhost.gibsgibs.server;
+package com.github.gibsgibs.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

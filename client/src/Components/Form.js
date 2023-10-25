@@ -1,48 +1,56 @@
-import { useState } from "react"
-
-function Form() {
-
-  const [name, setName] = useState('')
-  const [realm, setRealm] = useState('')
-
-  const handleSubmit = (Event) => {
-    Event.preventDefault()
-    fetch("/api", {
-      method: "POST",
-      body: JSON.stringify({
-        content: {
-          "name": name,
-          "realm": realm
-        }
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    }).then(response => response.json())
-      .then(message => {
-        console.log(message)
-        setName('')
-        setRealm('')
-      })
+const Form = ({ formData, setFormData, handleFormSubmit }) => {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   }
-
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleFormSubmit();
+    }
+  }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        required
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      ></input>
-      <input
-        type="text"
-        required
-        value={realm}
-        onChange={(e) => setRealm(e.target.value)}
-      ></input>
-      <input type="submit"></input>
-    </form>
+    <>
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                {/* <h5 className="card-title">Please enter your character info</h5> */}
+                <div className="mb-3">
+                  <label className="form-label">
+                    Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    required
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                  ></input>
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">
+                    Realm
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    required
+                    name="realm"
+                    value={formData.realm}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                  ></input>
+                </div>
+                  <button className="btn btn-primary float-end" onClick={handleFormSubmit} type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
-
 export { Form };
