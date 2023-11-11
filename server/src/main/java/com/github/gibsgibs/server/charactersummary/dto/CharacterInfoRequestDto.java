@@ -1,6 +1,6 @@
-package com.github.gibsgibs.server.model;
+package com.github.gibsgibs.server.charactersummary.dto;
 
-public class CharacterSummary {
+public class CharacterInfoRequestDto {
     private String name;
     private String realm;
     public String getName() {

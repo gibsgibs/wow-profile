@@ -12,10 +12,9 @@ const Form = ({ formData, setFormData, handleFormSubmit }) => {
     <>
       <div className="container-fluid">
         <div className="row justify-content-center">
-          <div className="col-sm-6">
+          <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                {/* <h5 className="card-title">Please enter your character info</h5> */}
                 <div className="mb-3">
                   <label className="form-label">
                     Name

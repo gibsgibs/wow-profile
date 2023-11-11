@@ -224,3 +224,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets ###
+/server/src/main/resources/secrets.properties
+/server/src/main/resources/requests/token.http

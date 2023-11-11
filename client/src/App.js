@@ -11,11 +11,15 @@ const App = () => {
   const handleFormSubmit = async () => {
     const encodedName = encodeURIComponent(formData.name);
     const encodedRealm = encodeURIComponent(formData.realm);
-    const response = await fetch(`/api?name=${encodedName}&realm=${encodedRealm}`, {
-      method: "GET",
+    const response = await fetch(`/GetCharacterSummary?name=${encodedName}&realm=${encodedRealm}`, {
+      method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
-      }
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        realm: formData.realm  
+      })
     }).then(response => response.json());
     setResponse(response);
   }
@@ -34,7 +38,7 @@ const App = () => {
         setFormData={setFormData}
         handleFormSubmit={handleFormSubmit}
       />
-      <Character temp={response} />
+      <Character response={response} />
     </div>
   );
 }

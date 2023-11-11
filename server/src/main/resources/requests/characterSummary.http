@@ -1,0 +1,20 @@
+POST http://localhost:8080/GetCharacterSummary HTTP/1.1
+content-type: application/json
+{
+    "name": "valthys",
+    "realm": "bonechewer"
+}
+
+GET https://us.api.blizzard.com/profile/wow/character/bonechewer/valthys 
+    ?namespace=profile-us
+    &locale=en_US
+Authorization: Bearer USaZ9ZrM2y9dJTVWkITyLly59t4PsPI7ER
+Battlenet-Namespace: static-us
+
+GET https://us.api.blizzard.com/profile/wow/character/bonechewer/valthys/appearance?namespace=profile-us
+Authorization: Bearer USaZ9ZrM2y9dJTVWkITyLly59t4PsPI7ER
+Battlenet-Namespace: static-us
+
+GET https://us.api.blizzard.com/profile/wow/character/bonechewer/valthys/character-media?namespace=profile-us
+Authorization: Bearer USaZ9ZrM2y9dJTVWkITyLly59t4PsPI7ER
+Battlenet-Namespace: static-us
